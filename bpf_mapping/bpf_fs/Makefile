@@ -1,11 +1,11 @@
-SRC = fs.c
+SRC = fs.c ../../bpf.c
 CC = gcc
 
 CFLAGS = -g
 
 BIN = fs
 
-OBJS = $(SRC:%.c=%.o) ../../bpf.o
+OBJS = $(SRC:%.c=%.o) 
 
 all: $(BIN)
 
