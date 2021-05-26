@@ -4,7 +4,7 @@
 #include <linux/bpf.h>
 #include <stdio.h>
 #include <string.h>
-#include "../../bpf.c"
+#include "../../bpf.h"
 
 static const char * file_path = "/sys/fs/bpf/my_array";
 
