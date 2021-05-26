@@ -12,8 +12,10 @@ prog = """
 #include <uapi/linux/ptrace.h>
 
 
-int trace__do_work(struct pt_regs *ctx)
+int trace__do_work(struct pt_regs  *ctx)
 {
+        //bpf_trace_printk("0x%llx",ctx->rsp);
+
         char new_arg3[] = "aaaaaaaa";
         u64 pid = bpf_get_current_pid_tgid();
         bpf_trace_printk("prog pid: %d\\n",pid);
@@ -23,7 +25,13 @@ int trace__do_work(struct pt_regs *ctx)
         bpf_trace_printk("rsp: 0x%llx\\n",ctx->sp);
         bpf_trace_printk("rip: 0x%llx\\n",ctx->ip);
         bpf_trace_printk("rbp: 0x%llx\\n",ctx->bp);
-        ctx->di = 0;
+        bpf_trace_printk("ctx:0x%llx\\n",&ctx);
+        
+       //ctx->di = 0;
+        //int a =0;
+        //bpf_probe_read(&ctx->di, sizeof(int), &a);
+        //bpf_override_return(ctx,0xffffffff);
+        
         return 0;
 };
 """
