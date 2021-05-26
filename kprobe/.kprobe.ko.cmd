@@ -1,0 +1,1 @@
+cmd_/root/playing_eBPF/kprobe/kprobe.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /root/playing_eBPF/kprobe/kprobe.ko /root/playing_eBPF/kprobe/kprobe.o /root/playing_eBPF/kprobe/kprobe.mod.o ;  true
